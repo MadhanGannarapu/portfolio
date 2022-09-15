@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/text_styles.dart';
+import 'package:portfolio/view/screens/experience_screen.dart';
+import 'package:portfolio/view/screens/work_screen.dart';
 import 'package:portfolio/view/widgets/development_flag_widget.dart';
 
+import 'about_me_screen.dart';
 import 'contact_screen.dart';
 import 'home_screen.dart';
 
@@ -21,7 +24,7 @@ class MainScreen extends StatelessWidget {
             title: const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'MG',
+                '<MG/>',
                 style: TextStyle(
                   fontSize: 30,
                   letterSpacing: 4,
@@ -65,13 +68,24 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      HomeScreen(),
-                      ContactScreen(),
-                    ],
+                child: Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: size.width * 0.1),
+                  child: ScrollConfiguration(
+                          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: const [
+                          HomeScreen(),
+                          AboutScreen(),
+                          ExperienceScreen(),
+                          WorkScreen(),
+                          ContactScreen(),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -99,7 +113,7 @@ class MainScreen extends StatelessWidget {
             ],
           ),
         ),
-      const UnderDevelopmentBanner()
+        const UnderDevelopmentBanner()
       ],
     );
   }

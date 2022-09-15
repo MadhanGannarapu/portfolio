@@ -4,4 +4,5 @@ class AppColors{
   static const Color white = Colors.white;
   static const Color black = Colors.black;
    static const Color aliceBlue = Color(0xffF0F4FA);
+   static const Color maastrichtBlue = Color(0xff001d3d);
 }

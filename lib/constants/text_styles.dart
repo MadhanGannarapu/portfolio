@@ -10,5 +10,5 @@ class AppTextStyles {
       TextStyle(fontSize: 24, fontWeight: FontWeight.w900);
   static TextStyle caption = GoogleFonts.firaCode(textStyle: const TextStyle());
   static const TextStyle normal =
-      TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.grey);
+      TextStyle(fontSize: 16);
 }

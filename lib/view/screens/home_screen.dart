@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
             'Hi, my name is',
             style: AppTextStyles.caption,
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 10),
           const Text(
             'Madhan Gannarapu',
             style: AppTextStyles.header,
@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 25),
           Padding(
-            padding: EdgeInsets.only(right: size.height * 0.7),
+            padding: EdgeInsets.only(right: size.height * 0.3),
             child: const Text(
               'I’m a software developer specializing in building (and occasionally backend) exceptional digital experiences. Currently, I’m focused on building accessible, human-centered products at AutomateSMB',
               style: AppTextStyles.normal,
