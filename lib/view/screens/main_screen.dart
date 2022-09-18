@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/constants/text_styles.dart';
 import 'package:portfolio/view/screens/experience_screen.dart';
+import 'package:portfolio/view/screens/responsive/responsive.dart';
 import 'package:portfolio/view/screens/work_screen.dart';
 import 'package:portfolio/view/widgets/development_flag_widget.dart';
 
+import '../widgets/navbar/bottom_appbar.dart';
+import '../widgets/navbar/sidebar_widget.dart';
 import 'about_me_screen.dart';
 import 'contact_screen.dart';
 import 'home_screen.dart';
@@ -16,105 +17,97 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Stack(
-      children: [
-        Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            title: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                '<MG/>',
-                style: TextStyle(
-                  fontSize: 30,
-                  letterSpacing: 4,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            actions: [
-              TextButton(onPressed: () {}, child: const Text('About')),
-              TextButton(onPressed: () {}, child: const Text('Experience')),
-              TextButton(onPressed: () {}, child: const Text('Work')),
-              TextButton(onPressed: () {}, child: const Text('Contact')),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                    onPressed: () {}, child: const Text('Resume')),
-              )
-            ],
+    return SafeArea(
+      child: Stack(
+        children: const [
+          Responsive(
+            mobile: MobileView(),
+            tablet: TabletView(),
+            desktop: TabletView(),
           ),
-          body: Row(
-            children: [
-              SizedBox(
-                width: size.width * 0.1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const FaIcon(FontAwesomeIcons.github),
-                    SizedBox(height: size.height * 0.02),
-                    const FaIcon(FontAwesomeIcons.linkedin),
-                    SizedBox(height: size.height * 0.02),
-                    const FaIcon(FontAwesomeIcons.instagram),
-                    SizedBox(height: size.height * 0.02),
-                    SizedBox(height: size.height * 0.02),
-                    SizedBox(
-                      height: size.height * 0.1,
-                      child: const VerticalDivider(),
-                    )
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: size.width * 0.1),
-                  child: ScrollConfiguration(
-                          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          UnderDevelopmentBanner()
+        ],
+      ),
+    );
+  }
+}
 
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: const [
-                          HomeScreen(),
-                          AboutScreen(),
-                          ExperienceScreen(),
-                          WorkScreen(),
-                          ContactScreen(),
-                        ],
-                      ),
-                    ),
+class MobileView extends StatelessWidget {
+  const MobileView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      bottomNavigationBar: const BottomAppbarWidget(),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: const [
+                HomeScreen(),
+                AboutScreen(),
+                ExperienceScreen(),
+                WorkScreen(),
+                ContactScreen(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TabletView extends StatelessWidget {
+  const TabletView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      body: Row(
+        children: [
+          const SidebarWidget(),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+              child: ScrollConfiguration(
+                behavior:
+                    ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    children: const [
+                      HomeScreen(),
+                      AboutScreen(),
+                      ExperienceScreen(),
+                      WorkScreen(),
+                      ContactScreen(),
+                    ],
                   ),
                 ),
               ),
-              SizedBox(
-                width: size.width * 0.1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    RotatedBox(
-                      quarterTurns: 1,
-                      child: Text(
-                        'madhan.gannarapu410@gmail.com',
-                        style: AppTextStyles.caption,
-                      ),
-                    ),
-                    SizedBox(height: size.height * 0.02),
-                    SizedBox(
-                      height: size.height * 0.1,
-                      child: const VerticalDivider(),
-                    )
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
-        const UnderDevelopmentBanner()
-      ],
+        ],
+      ),
     );
+  }
+}
+
+class DesktopView extends StatelessWidget {
+  const DesktopView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

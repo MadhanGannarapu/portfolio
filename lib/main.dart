@@ -4,7 +4,6 @@ import 'package:portfolio/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'view/screens/main_screen.dart';
-import 'view/widgets/custom_cursor_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,11 +23,12 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(builder: (context, theme, _) {
         return MaterialApp(
           title: 'Flutter Demo',
+          
           debugShowCheckedModeBanner: false,
-          // themeMode: theme.themeMode,
-          themeMode: ThemeMode.light,
+         // // themeMode: theme.themeMode,
+          // themeMode: ThemeMode.light,
           theme: AppThemes.lightTheme,
-          darkTheme: AppThemes.darkTheme,
+          // darkTheme: AppThemes.darkTheme,
           home: const MainScreen(),
         );
       }),

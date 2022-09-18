@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../constants/text_styles.dart';
+import '../widgets/skills_widget.dart';
 import '../widgets/title_with_gradient_number.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -14,7 +15,8 @@ class AboutScreen extends StatelessWidget {
         Text(
             "A self-taught Programmer, functioning in the industry for 3+ years now. I make meaningful and delightful digital products that create an equilibrium between user needs and business goals.",
             style: AppTextStyles.normal),
-        SizedBox(height: 200)
+        SkillsWidget(),
+        SizedBox(height: 200),
       ],
     );
   }

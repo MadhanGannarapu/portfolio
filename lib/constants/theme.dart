@@ -13,23 +13,20 @@ class AppThemes {
 
   static final lightTheme = ThemeData(
       scaffoldBackgroundColor: Colors.white,
-      primaryColor: Colors.white,
-      colorScheme: const ColorScheme.light(),
+      primaryColor: AppColors.maastrichtBlue,
       textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
       dividerTheme: const DividerThemeData(color: AppColors.black),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(primary: Colors.black),
+        style: TextButton.styleFrom(foregroundColor: AppColors.maastrichtBlue),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          onPrimary: Colors.white,
-          primary: AppColors.black,
+          foregroundColor: Colors.white, backgroundColor: AppColors.maastrichtBlue,
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          primary: Colors.purple,
-          backgroundColor: Colors.green,
+          foregroundColor: AppColors.maastrichtBlue,
         ),
       ),
       appBarTheme: const AppBarTheme(backgroundColor: AppColors.white));
