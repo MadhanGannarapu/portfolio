@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomAppbarWidget extends StatelessWidget {
-  const BottomAppbarWidget({super.key});
+  const BottomAppbarWidget({super.key, required this.keys});
+  final List<GlobalKey> keys;
 
   @override
   Widget build(BuildContext context) {
@@ -40,24 +41,31 @@ class BottomAppbarWidget extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              TextButton(
-                                  onPressed: () {}, child: const Text('About')),
-                              TextButton(
-                                  onPressed: () {},
-                                  child: const Text('Experience')),
-                              TextButton(
-                                  onPressed: () {}, child: const Text('Work'))
+                              BottomAppBarButton(
+                                label: 'About',
+                                pageKey: keys[1],
+                              ),
+                              BottomAppBarButton(
+                                label: 'Experience',
+                                pageKey: keys[2],
+                              ),
+                              BottomAppBarButton(
+                                label: 'Work',
+                                pageKey: keys[3],
+                              ),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              TextButton(
-                                  onPressed: () {},
-                                  child: const Text('Contact')),
-                              TextButton(
-                                  onPressed: () {},
-                                  child: const Text('Resume')),
+                              BottomAppBarButton(
+                                label: 'Contact',
+                                pageKey: keys[4],
+                              ),
+                              BottomAppBarButton(
+                                label: 'Resume',
+                                pageKey: keys[4],
+                              ),
                               IconButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
@@ -75,6 +83,21 @@ class BottomAppbarWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class BottomAppBarButton extends StatelessWidget {
+  const BottomAppBarButton(
+      {super.key, required this.label, required this.pageKey});
+  final String label;
+  final GlobalKey pageKey;
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () => Scrollable.ensureVisible(pageKey.currentContext!,
+          duration: const Duration(seconds: 1)),
+      child: Text(label),
     );
   }
 }

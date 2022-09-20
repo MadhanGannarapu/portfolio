@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<ThemeProvider>(builder: (context, theme, _) {
         return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Madhan Gannarapu',
           
           debugShowCheckedModeBanner: false,
          // // themeMode: theme.themeMode,

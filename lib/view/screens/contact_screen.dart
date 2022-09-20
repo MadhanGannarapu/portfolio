@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/text.dart';
 import 'package:portfolio/constants/text_styles.dart';
+import 'package:portfolio/view/screens/responsive/responsive.dart';
 
 import '../widgets/title_with_gradient_number.dart';
 
@@ -13,22 +15,43 @@ class ContactScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleWithGradientNumber(number: '4', title: 'What’s Next?'),
-        const Text('Get In Touch', style: AppTextStyles.title),
+        const Text(AppText.getInTouchHeading, style: AppTextStyles.title),
         const SizedBox(height: 10),
-        Row(
-          children: [
-            SizedBox(
-              width: size.width * 0.4,
-              child: const Text(
-                  'Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!',
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.normal),
+        Responsive(
+            mobile: Column(
+              children: [
+                const Text(AppText.getInTouch,
+                    textAlign: TextAlign.center, style: AppTextStyles.normal),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Say Hello'),
+                ),
+              ],
             ),
-            const Spacer(),
-            ElevatedButton(onPressed: () {}, child: const Text('Say Hello')),
-            const Spacer(),
-          ],
-        ),
+            tablet: Row(
+              children: [
+                const Expanded(
+                  child: Text(AppText.getInTouch,
+                      textAlign: TextAlign.center, style: AppTextStyles.normal),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Say Hello'),
+                ),
+              ],
+            ),
+            desktop: Row(
+              children: [
+                const Expanded(
+                  child: Text(AppText.getInTouch,
+                      textAlign: TextAlign.center, style: AppTextStyles.normal),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Say Hello'),
+                ),
+              ],
+            )),
         const SizedBox(height: 200),
       ],
     );

@@ -15,8 +15,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return SafeArea(
       child: Stack(
         children: const [
@@ -38,9 +36,19 @@ class MobileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    final homeScreenKey = GlobalKey();
+    final aboutScreenKey = GlobalKey();
+    final experienceScreenKey = GlobalKey();
+    final workScreenKey = GlobalKey();
+    final contactScreenKey = GlobalKey();
     return Scaffold(
-      bottomNavigationBar: const BottomAppbarWidget(),
+      bottomNavigationBar: BottomAppbarWidget(keys: [
+        homeScreenKey,
+        aboutScreenKey,
+        experienceScreenKey,
+        workScreenKey,
+        contactScreenKey
+      ]),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
         child: ScrollConfiguration(
@@ -49,12 +57,12 @@ class MobileView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
-              children: const [
-                HomeScreen(),
-                AboutScreen(),
-                ExperienceScreen(),
-                WorkScreen(),
-                ContactScreen(),
+              children: [
+                HomeScreen(key: homeScreenKey),
+                AboutScreen(key: aboutScreenKey),
+                ExperienceScreen(key: experienceScreenKey),
+                WorkScreen(key: workScreenKey),
+                ContactScreen(key: contactScreenKey),
               ],
             ),
           ),
@@ -70,11 +78,23 @@ class TabletView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    final homeScreenKey = GlobalKey();
+    final aboutScreenKey = GlobalKey();
+    final experienceScreenKey = GlobalKey();
+    final workScreenKey = GlobalKey();
+    final contactScreenKey = GlobalKey();
     return Scaffold(
       body: Row(
         children: [
-          const SidebarWidget(),
+          SidebarWidget(
+            keys: [
+              homeScreenKey,
+              aboutScreenKey,
+              experienceScreenKey,
+              workScreenKey,
+              contactScreenKey
+            ],
+          ),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
@@ -85,12 +105,12 @@ class TabletView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
-                    children: const [
-                      HomeScreen(),
-                      AboutScreen(),
-                      ExperienceScreen(),
-                      WorkScreen(),
-                      ContactScreen(),
+                    children: [
+                      HomeScreen(key: homeScreenKey),
+                      AboutScreen(key: aboutScreenKey),
+                      ExperienceScreen(key: experienceScreenKey),
+                      WorkScreen(key: workScreenKey),
+                      ContactScreen(key: contactScreenKey),
                     ],
                   ),
                 ),
