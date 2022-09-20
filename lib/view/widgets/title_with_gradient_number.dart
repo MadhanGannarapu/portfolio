@@ -28,6 +28,7 @@ class TitleWithGradientNumber extends StatelessWidget {
               Text(
                 title,
                 style: const TextStyle(
+                  backgroundColor: Colors.transparent,
                   fontSize: 24,
                   fontWeight: FontWeight.w900,
                   color: AppColors.maastrichtBlue,

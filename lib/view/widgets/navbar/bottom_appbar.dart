@@ -7,7 +7,7 @@ class BottomAppbarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
+      // shape: const CircularNotchedRectangle(),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
@@ -22,17 +22,17 @@ class BottomAppbarWidget extends StatelessWidget {
                 showModalBottomSheet(
                   context: context,
                   backgroundColor: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
                   builder: (context) {
                     return Container(
                       margin: const EdgeInsets.only(
-                          bottom: 50, left: 20, right: 20),
+                        bottom: 50,
+                        left: 20,
+                        right: 20,
+                      ),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
