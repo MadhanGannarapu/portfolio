@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/view/screens/experience_screen.dart';
 import 'package:portfolio/view/screens/responsive/responsive.dart';
 import 'package:portfolio/view/screens/work_screen.dart';
 import 'package:portfolio/view/widgets/development_flag_widget.dart';
 
+import '../widgets/navbar/appbar.dart';
 import '../widgets/navbar/bottom_appbar.dart';
 import '../widgets/navbar/sidebar_widget.dart';
 import 'about_me_screen.dart';
@@ -42,6 +44,7 @@ class MobileView extends StatelessWidget {
     final workScreenKey = GlobalKey();
     final contactScreenKey = GlobalKey();
     return Scaffold(
+      appBar: CustomAppBar(homeScreenKey: homeScreenKey),
       bottomNavigationBar: BottomAppbarWidget(keys: [
         homeScreenKey,
         aboutScreenKey,
@@ -84,6 +87,8 @@ class TabletView extends StatelessWidget {
     final workScreenKey = GlobalKey();
     final contactScreenKey = GlobalKey();
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(homeScreenKey: homeScreenKey),
       body: Row(
         children: [
           SidebarWidget(

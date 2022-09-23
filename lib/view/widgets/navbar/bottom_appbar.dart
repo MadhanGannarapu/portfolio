@@ -62,10 +62,10 @@ class BottomAppbarWidget extends StatelessWidget {
                                 label: 'Contact',
                                 pageKey: keys[4],
                               ),
-                              BottomAppBarButton(
-                                label: 'Resume',
-                                pageKey: keys[4],
-                              ),
+                              // BottomAppBarButton(
+                              //   label: 'Resume',
+                              //   pageKey: keys[4],
+                              // ),
                               IconButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();

@@ -14,20 +14,6 @@ class SidebarWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 20),
-          InkWell(
-            onTap: () => Scrollable.ensureVisible(keys[0].currentContext!,
-                duration: const Duration(seconds: 1)),
-            child: const Text(
-              "{M}",
-              style: TextStyle(
-                fontSize: 18,
-                letterSpacing: 4,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
           const Spacer(flex: 10),
           SidebarItemWidget(label: 'About', pageKey: keys[1]),
           const Spacer(flex: 1),
@@ -36,8 +22,6 @@ class SidebarWidget extends StatelessWidget {
           SidebarItemWidget(label: 'Work', pageKey: keys[3]),
           const Spacer(flex: 1),
           SidebarItemWidget(label: 'Contact', pageKey: keys[4]),
-          const Spacer(flex: 1),
-          SidebarItemWidget(label: 'Resume', pageKey: keys[4]),
           const Spacer(flex: 10),
         ],
       ),
