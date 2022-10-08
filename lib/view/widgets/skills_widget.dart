@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/colors.dart';
+import 'package:portfolio/constants/text.dart';
 
 import '../../constants/languages.dart';
 import '../models/language_model.dart';
@@ -15,26 +16,26 @@ class SkillsWidget extends StatelessWidget {
       child: Column(
         children: [
           const Text(
-            "Here are a few technologies I’ve been working with recently:",
+            AppText.skillsTagline,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           Wrap(
             runAlignment: WrapAlignment.spaceBetween,
             children: [
               SkillsWithHeader(
-                header: 'Programming Language',
+                header: AppText.programmingLang,
                 techStack: SkillsData.programmingLanguage,
               ),
               SkillsWithHeader(
-                header: 'Frontend',
+                header: AppText.frontend,
                 techStack: SkillsData.frontend,
               ),
               SkillsWithHeader(
-                header: 'Backend',
+                header: AppText.backend,
                 techStack: SkillsData.backend,
               ),
               SkillsWithHeader(
-                header: 'Others',
+                header: AppText.others,
                 techStack: SkillsData.others,
               ),
             ],
@@ -53,18 +54,26 @@ class SkillsWithHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              header,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            header,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              boxShadow: const [
+                BoxShadow(color: AppColors.aliceBlue, blurRadius: 2),
+              ],
             ),
-            const SizedBox(height: 10),
-            Wrap(
+            child: Wrap(
               runSpacing: 10,
               spacing: 10,
               children: techStack
@@ -80,9 +89,9 @@ class SkillsWithHeader extends StatelessWidget {
                     ),
                   )
                   .toList(),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }

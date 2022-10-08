@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/text.dart';
+
 import '../../constants/text_styles.dart';
 import '../widgets/skills_widget.dart';
 import '../widgets/title_with_gradient_number.dart';
@@ -11,10 +13,11 @@ class AboutScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
-        TitleWithGradientNumber(number: '1', title: 'About me'),
-        Text(
-            "A self-taught Programmer, functioning in the industry for 3+ years now. I make meaningful and delightful digital products that create an equilibrium between user needs and business goals.",
-            style: AppTextStyles.normal),
+        TitleWithGradientNumber(
+          number: AppText.aboutMeSNO,
+          title: AppText.aboutMeHeading,
+        ),
+        Text(AppText.aboutMeSubText, style: AppTextStyles.normal),
         SkillsWidget(),
         SizedBox(height: 200),
       ],

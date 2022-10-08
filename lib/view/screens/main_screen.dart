@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/constants/colors.dart';
 import 'package:portfolio/view/screens/experience_screen.dart';
 import 'package:portfolio/view/screens/responsive/responsive.dart';
 import 'package:portfolio/view/screens/work_screen.dart';
@@ -10,6 +10,7 @@ import '../widgets/navbar/bottom_appbar.dart';
 import '../widgets/navbar/sidebar_widget.dart';
 import 'about_me_screen.dart';
 import 'contact_screen.dart';
+import 'footer_screen.dart';
 import 'home_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -44,6 +45,7 @@ class MobileView extends StatelessWidget {
     final workScreenKey = GlobalKey();
     final contactScreenKey = GlobalKey();
     return Scaffold(
+      backgroundColor: AppColors.aliceBlue,
       appBar: CustomAppBar(homeScreenKey: homeScreenKey),
       bottomNavigationBar: BottomAppbarWidget(keys: [
         homeScreenKey,
@@ -66,6 +68,7 @@ class MobileView extends StatelessWidget {
                 ExperienceScreen(key: experienceScreenKey),
                 WorkScreen(key: workScreenKey),
                 ContactScreen(key: contactScreenKey),
+                const FooterScreen()
               ],
             ),
           ),
@@ -88,6 +91,7 @@ class TabletView extends StatelessWidget {
     final contactScreenKey = GlobalKey();
     return Scaffold(
       extendBodyBehindAppBar: true,
+      backgroundColor: AppColors.aliceBlue,
       appBar: CustomAppBar(homeScreenKey: homeScreenKey),
       body: Row(
         children: [
@@ -116,6 +120,7 @@ class TabletView extends StatelessWidget {
                       ExperienceScreen(key: experienceScreenKey),
                       WorkScreen(key: workScreenKey),
                       ContactScreen(key: contactScreenKey),
+                      const FooterScreen()
                     ],
                   ),
                 ),

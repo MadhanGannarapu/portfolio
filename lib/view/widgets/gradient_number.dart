@@ -16,8 +16,8 @@ class GradientText extends StatelessWidget {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
-          Colors.blueGrey.shade100,
-          const Color.fromARGB(42, 227, 242, 253),
+          Colors.blueGrey.shade300,
+          const Color(0x2AE3F2FD),
         ]);
     return ShaderMask(
       blendMode: BlendMode.srcIn,
@@ -32,3 +32,5 @@ class GradientText extends StatelessWidget {
     );
   }
 }
+//  Colors.blueGrey.shade300,
+//           Color.fromARGB(74, 227, 242, 253),

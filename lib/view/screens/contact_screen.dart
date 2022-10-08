@@ -10,49 +10,61 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Widget getInTouchWidget = const Text(
+      AppText.getInTouchContent,
+      textAlign: TextAlign.center,
+      style: AppTextStyles.normal,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleWithGradientNumber(number: '4', title: 'What’s Next?'),
-        const Text(AppText.getInTouchHeading, style: AppTextStyles.title),
+        const TitleWithGradientNumber(
+          number: AppText.contactSNO,
+          title: AppText.contactHeading,
+        ),
+        const Text(AppText.getInTouch, style: AppTextStyles.title),
         const SizedBox(height: 10),
         Responsive(
-            mobile: Column(
-              children: [
-                const Text(AppText.getInTouch,
-                    textAlign: TextAlign.center, style: AppTextStyles.normal),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Say Hello'),
-                ),
-              ],
-            ),
-            tablet: Row(
-              children: [
-                const Expanded(
-                  child: Text(AppText.getInTouch,
-                      textAlign: TextAlign.center, style: AppTextStyles.normal),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Say Hello'),
-                ),
-              ],
-            ),
-            desktop: Row(
-              children: [
-                const Expanded(
-                  child: Text(AppText.getInTouch,
-                      textAlign: TextAlign.center, style: AppTextStyles.normal),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Say Hello'),
-                ),
-              ],
-            )),
+          mobile: Column(
+            children: [
+              getInTouchWidget,
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text(AppText.sayHello),
+              ),
+            ],
+          ),
+          tablet: const ContactDesktopView(),
+          desktop: const ContactDesktopView(),
+        ),
         const SizedBox(height: 200),
+      ],
+    );
+  }
+}
+
+class ContactDesktopView extends StatelessWidget {
+  const ContactDesktopView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const Expanded(
+          child: Text(
+            AppText.getInTouchContent,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.normal,
+          ),
+        ),
+        Expanded(
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text(AppText.sayHello),
+            ),
+          ),
+        ),
       ],
     );
   }

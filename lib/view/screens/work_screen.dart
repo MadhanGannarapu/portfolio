@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/text.dart';
 
 import '../widgets/title_with_gradient_number.dart';
 
@@ -9,8 +10,11 @@ class WorkScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        TitleWithGradientNumber(number: '3', title: 'Some Things I’ve Built'),
-        Text("This section is under development"),
+        TitleWithGradientNumber(
+          number: AppText.workSNO,
+          title: AppText.workHeading,
+        ),
+        Text(AppText.underDevlopment),
         SizedBox(height: 200)
       ],
     );
