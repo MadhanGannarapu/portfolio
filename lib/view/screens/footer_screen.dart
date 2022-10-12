@@ -18,16 +18,12 @@ class FooterScreen extends StatelessWidget {
         decoration: AppDecoration.card,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SocaialNetworksWidget(),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                LocationPinWidget(),
-                PoweredByWidget(),
-              ],
-            )
+          children: const [
+            SocaialNetworksWidget(),
+            SizedBox(height: 10),
+            LocationPinWidget(),
+            SizedBox(height: 10),
+            PoweredByWidget(),
           ],
         ),
       ),
@@ -84,7 +80,7 @@ class PoweredByWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Designed and Developed by me :)');
+    return const Text('Designed & Developed by me :)');
   }
 }
 

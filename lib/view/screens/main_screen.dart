@@ -45,7 +45,7 @@ class MobileView extends StatelessWidget {
     final workScreenKey = GlobalKey();
     final contactScreenKey = GlobalKey();
     return Scaffold(
-      // backgroundColor: AppColors.aliceBlue,
+      backgroundColor: AppColors.aliceBlue,
       appBar: CustomAppBar(homeScreenKey: homeScreenKey),
       bottomNavigationBar: BottomAppbarWidget(keys: [
         homeScreenKey,
