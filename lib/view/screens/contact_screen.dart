@@ -28,6 +28,7 @@ class ContactScreen extends StatelessWidget {
           mobile: Column(
             children: [
               getInTouchWidget,
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {},
                 child: const Text(AppText.sayHello),

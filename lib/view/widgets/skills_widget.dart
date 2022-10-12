@@ -19,6 +19,8 @@ class SkillsWidget extends StatelessWidget {
             AppText.skillsTagline,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
+          // const Icon(Icons.web),
+          // const FaIcon(FontAwesomeIcons.mo),
           Wrap(
             runAlignment: WrapAlignment.spaceBetween,
             children: [
