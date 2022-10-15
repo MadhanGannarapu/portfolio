@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/constants/decorations.dart';
+import 'package:portfolio/constants/text.dart';
+import 'package:portfolio/utils/url_launcher_util.dart';
 import 'package:portfolio/view/screens/responsive/responsive.dart';
 
 class FooterScreen extends StatelessWidget {
@@ -93,23 +95,33 @@ class SocaialNetworksWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherUtils.openLink(url: AppUrl.github);
+          },
           icon: const FaIcon(FontAwesomeIcons.github),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherUtils.openLink(url: AppUrl.instagram);
+          },
           icon: const FaIcon(FontAwesomeIcons.instagram),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherUtils.openLink(url: AppUrl.linkedIn);
+          },
           icon: const FaIcon(FontAwesomeIcons.linkedinIn),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherUtils.openLink(url: AppUrl.medium);
+          },
           icon: const FaIcon(FontAwesomeIcons.medium),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            UrlLauncherUtils().openEmail();
+          },
           icon: const FaIcon(FontAwesomeIcons.envelope),
         )
       ],

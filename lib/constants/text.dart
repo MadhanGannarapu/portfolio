@@ -28,5 +28,12 @@ class AppText {
       'Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!';
 
   static const String underDevlopment = "This section is under development";
-  
+}
+
+class AppUrl {
+  static const String instagram = "https://www.instagram.com/madhan_gannarapu/";
+  static const String github = "https://github.com/MadhanGannarapu";
+  static const String medium = "https://medium.com/@madhan.gannarapu410";
+  static const String linkedIn =
+      "https://www.linkedin.com/in/madhan-gannarapu/";
 }

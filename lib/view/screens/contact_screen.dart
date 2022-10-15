@@ -3,6 +3,7 @@ import 'package:portfolio/constants/text.dart';
 import 'package:portfolio/constants/text_styles.dart';
 import 'package:portfolio/view/screens/responsive/responsive.dart';
 
+import '../../utils/url_launcher_util.dart';
 import '../widgets/title_with_gradient_number.dart';
 
 class ContactScreen extends StatelessWidget {
@@ -61,7 +62,9 @@ class ContactDesktopView extends StatelessWidget {
         Expanded(
           child: Center(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                UrlLauncherUtils().openEmail();
+              },
               child: const Text(AppText.sayHello),
             ),
           ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/circles.dart';
 
-class HomeBackground extends StatelessWidget {
-  const HomeBackground({super.key});
+class AboutViewBackground extends StatelessWidget {
+  const AboutViewBackground({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +15,11 @@ class HomeBackground extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [
-          GradientCircle(size: 50, alignment: Alignment.center),
-          GradientCircle(size: 150, alignment: Alignment.centerRight),
-          GradientCircle(alignment: Alignment.centerLeft),
-          GradientCircle(size: 100, alignment: Alignment.center),
-          GradientCircle(size: 50, alignment: Alignment.centerRight),
+          OutlinedCircle(
+              alignment: Alignment.centerRight, size: 200, thickness: 15),
+          OutlinedCircle(alignment: Alignment.centerLeft, size: 250),
+          OutlinedCircle(alignment: Alignment.center, size: 100, thickness: 5),
+          RippleEffectCircle(alignment: Alignment.centerRight, size: 100),
         ],
       ),
     );
